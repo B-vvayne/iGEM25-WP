@@ -172,11 +172,7 @@ Make sure that:
     $$
     ```
 
-    应该显示为如下格式：
-
-    $$
-        x = \frac{-b \pm \sqrt{b^2 - 4ac}}{2a}
-    $$
+    应该显示为: $ x = \frac{-b \pm \sqrt{b^2 - 4ac}}{2a} $
 
 4. 开始（并不）愉快地敲公式
 
