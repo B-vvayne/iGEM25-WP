@@ -5,12 +5,6 @@
 
 有疑问可以戳我，可以帮忙 debug 但不会帮忙写 hhh。
 
-- TODO (如果没有咕咕):
-
-    - [ ] MathJax
-    
-    - 其他再说 (?) 毕竟我啥也不会
-
 ## 1 Requirements
 
 - The final version of Wiki should be deployed as a `GitHub Pages Site` before <span style="color:red;">2024.02.24 0:00</span>
@@ -84,11 +78,11 @@ Make sure that:
 
 1. Fork this Repo
 
-    > [!IMPORTANT]
-    >
-    > 在 fork 时请 **取消勾选** "Copy the `master` branch only" 选项
-    >
-    > 这会导致在首次 push 前缺少 `gh-pages` 分支（问题不大，push 一次之后就会自动创建了）
+> [!IMPORTANT]
+>
+> 在 fork 时请 **取消勾选** "Copy the `master` branch only" 选项
+>
+> => 这会导致在首次 push 前缺少 `gh-pages` 分支（问题不大，push 一次之后就会自动创建了）
 
 2. Init Git Pages on branch `gh-pages`
 
@@ -124,3 +118,5 @@ Make sure that:
     You can see the result @ `https://{Your Username}.github.io/iGEM24-WP-Tutorial/`
 
     如果没有及时更新，可以：1. 查看有没有失败的 Action 2. 清空浏览器缓存
+
+## MathJax
