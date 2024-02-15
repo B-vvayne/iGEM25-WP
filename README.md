@@ -119,10 +119,28 @@ Make sure that:
 
     如果没有及时更新，可以：1. 查看有没有失败的 Action 2. 清空浏览器缓存
 
-## 5 MathJax
+## 5 Other Tips
+
+- 使用静态资源
+
+    如果您希望在项目中使用 `/static` 路径下包含的静态资源，请确保引用路径以 `static/...` 开头
+
+- 部署失败
+
+    由于 `frozen-flask` 的特性，包含 *不存在页面的相对路径* 可能导致打包失败
+
+    => 建议通过 **注释 `/pages/menu.html` 中的相对路径** （而非删除 `/pages` 下的 HTML 文件）来隐藏页面
+
+- 部署成功后无法即时应用修改
+
+    如果 Actions 中显示部署成功，则可能是 *浏览器缓存* 的锅
+
+    => 建议手动清除缓存并刷新页面（或者直接换一个浏览器打开）
+
+### MathJax
 > Beautiful and accessible math in all browsers
 
-### Intro
+#### Intro
 
 - 功能简介
 
@@ -138,7 +156,7 @@ Make sure that:
     >
     > 有兴趣可以自己康康 [3.2 版本的文档](https://www.osgeo.cn/mathjax/index.html)
 
-### Usage
+#### Usage
 
 1. 简单的创建一个 HTML 文件
 
