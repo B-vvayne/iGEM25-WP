@@ -5,6 +5,10 @@
 
 有疑问可以戳我，可以帮忙 debug 但不会帮忙写 hhh。
 
+> [!NOTE]
+> 
+> 感谢[咕泳蜇老师](https://github.com/waterrrrrrrr)提出的众多修改意见，常见问题的解决方案请跳转至 [这一节](https://github.com/triplepiers/iGEM24-WP-Tutorial?tab=readme-ov-file#5-other-tips)
+
 ## 1 Requirements
 
 - The final version of Wiki should be deployed as a `GitHub Pages Site` before <span style="color:red;">2024.02.24 0:00</span>
@@ -123,19 +127,104 @@ Make sure that:
 
 - 使用静态资源
 
-    如果您希望在项目中使用 `/static` 路径下包含的静态资源，请确保引用路径以 `static/...` 开头
+    如果您希望在项目中使用 `/static` 路径下包含的静态资源，请确保引用路径符合以下规范：
+
+    - 使用 `<script>` 标签引入 JS 文件：
+
+        - 声明相对路径
+
+            ```html
+            <script src="static/..."></script>
+            ```
+
+        - 使用 flask API
+        
+            ```html
+            <script src="{{ url_for('static', filename = '相对 static 的路径')}}"></script>
+            ```
+
+    - 使用 `<link>` 标签引入 CSS 文件：
+
+        - 使用 flask API 
+            
+            ```html
+            <link href="{{ url_for('static', filename = '相对 static 的路径')}}" rel="stylesheet">
+            ```
+
+    - 在 `<body>` 标签内引入图片文件：
+
+        - 手动声明相对路径
+
+            - `home.html`下：
+            
+                ```html
+                <img src="static/...">
+                ```
+
+            - `/wiki/pages` 下的其他文件：
+            
+                ```html
+                <img src="../../static/...">
+                ```
+
+        - 使用 flask API（通用）
+
+            ```html
+            <img src="{{ url_for('static', filename = '相对 static 的路径')}}">
+
+            <!-- 二级路径用例 -->
+            <img src="{{ url_for('static', filename = 'svg/logo.svg')}}">
+            ```
+    <details><summary>原因详解</summary>
+
+    - 其实是因为 `frozen-flask` 会把项目打包成以下形式：
+
+        ```text
+        ├── index.html         # /wiki/pages/home.html
+        │
+        ├── attributions       # /wiki/pages/ 下的其他页面
+        │   └── index.html
+        │
+        ├── ...
+        │
+        └── static            # /static 下的静态资源   
+           └── ...
+        ```
+    - flask 框架中的 `{{ url_for('static', filename = '####')}}` 会自动替换为正确链接
+
+    - 手动输入相对链接则需要疯狂调整相对路径
+
+    </details>
 
 - 部署失败
 
-    由于 `frozen-flask` 的特性，包含 *不存在页面的相对路径* 可能导致打包失败
+    - 可能原因：由于 `frozen-flask` 的特性，包含 *不存在页面的相对路径* 可能导致打包失败
 
-    => 建议通过 **注释 `/pages/menu.html` 中的相对路径** （而非删除 `/pages` 下的 HTML 文件）来隐藏页面
+    - **建议**：
+    
+        请通过 **注释 `/wiki/pages/menu.html` 中的相对路径** （而非删除 `/wiki/pages` 下的 HTML 文件）来隐藏页面
+
+    - debug 方法：
+
+        - 观察 Actions 中的错误输出
+
+        - 在项目根路径下运行 `python freezer.py`，观察报错信息
 
 - 部署成功后无法即时应用修改
 
-    如果 Actions 中显示部署成功，则可能是 *浏览器缓存* 的锅
+    - 如果 Actions 中显示部署成功，则可能是 *浏览器缓存* 的锅
 
-    => 建议手动清除缓存并刷新页面（或者直接换一个浏览器打开）
+        => 建议手动清除缓存并刷新页面（或者直接换一个浏览器打开）
+
+    - 可以在项目根路径下执行以下命令：
+    
+        ```bash
+        python freezer.py
+        ```
+
+        随后用 live Server 插件打开 `/public/index.html` 文件（项目首页）
+
+        => 如果这里跑起来没问题，那就一定是缓存的锅
 
 ### MathJax
 > Beautiful and accessible math in all browsers
