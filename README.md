@@ -84,6 +84,12 @@ Make sure that:
 
 1. Fork this Repo
 
+    > [!IMPORTANT]
+    >
+    > 在 fork 时请 **取消勾选** "Copy the `master` branch only" 选项
+    >
+    > 这会导致在首次 push 前缺少 `gh-pages` 分支（问题不大，push 一次之后就会自动创建了）
+
 2. Init Git Pages on branch `gh-pages`
 
     进入 `Setting->Pages`，在 `Branch` 中选择 `gh-pages` & `/(root)` 并保存修改
