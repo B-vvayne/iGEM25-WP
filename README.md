@@ -119,4 +119,67 @@ Make sure that:
 
     如果没有及时更新，可以：1. 查看有没有失败的 Action 2. 清空浏览器缓存
 
-## MathJax
+## 5 MathJax
+> Beautiful and accessible math in all browsers
+
+### Intro
+
+- 功能简介
+
+    **MathJax** 用于将 Latex 格式的公式转换为 SVG 图片显示，belike 从 `\frac{1}{\pi i}` 变成 $\frac{1}{\pi i}$
+
+    > 事实上它支持非常丰富的 input/output 格式，可以自行爬去 [官网](https://www.mathjax.org/) 康康
+
+- 使用简介
+
+    此处仅介绍 3.0 版本的 CDN 分法版本使用方式
+
+    > 本地 Release 版本的使用教程 & 按需加载就先咕咕了
+    >
+    > 有兴趣可以自己康康 [3.2 版本的文档](https://www.osgeo.cn/mathjax/index.html)
+
+### Usage
+
+1. 简单的创建一个 HTML 文件
+
+2. 随便找个角落引入 MathJax 并进行配置
+
+    ```html
+    <script>
+        MathJax = {
+            tex: {
+                // 支持 '$' 包裹行内公式，'$$' 包裹块级公式
+                inlineMath: [['$', '$']]
+            },
+            svg: {
+                fontCache: 'global'
+            }
+        };
+    </script>
+    <!-- 因为国外的 CDN 有点慢，这里胡乱抓了一个国内的 -->
+    <script type="text/javascript" id="MathJax-script" async
+        src="https://cdn.bootcdn.net/ajax/libs/mathjax/3.2.2/es5/tex-chtml.js">
+    </script>
+    ```
+
+3. 测试：在 `<body>` 标签内随便大一些公式，观察是否能正常显示
+
+    输入测试文本：
+
+    ```
+    $$
+        x = \frac{-b \pm \sqrt{b^2 - 4ac}}{2a}
+    $$
+    ```
+
+    应该显示为如下格式：
+
+    $$
+        x = \frac{-b \pm \sqrt{b^2 - 4ac}}{2a}
+    $$
+
+4. 开始（并不）愉快地敲公式
+
+    => 符号不会敲可以问浏览器（关键词请用 "Latex 公式"）
+
+    => 也可以试试 VS Code 上的 Latex Workshop 插件
