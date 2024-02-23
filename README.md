@@ -14,7 +14,7 @@
 | Name | Repo | Site |
 | :---: | :-- | :-- |
 | YJL | [iGEM24-WP-Tutorial](https://github.com/waterrrrrrrr/iGEM24-WP-Tutorial) | [Here](https://waterrrrrrrr.github.io/iGEM24-WP-Tutorial/) |
-| YYW | [WP-0](https://github.com/B-vvayne/WP_0) | [Here](https://b-vvayne.github.io/WP_0/) |
+| YYW | [Default](https://github.com/B-vvayne/B-vvayne.github.io) | [Here](https://b-vvayne.github.io/) |
 
 </details>
 
@@ -278,7 +278,7 @@ Make sure that:
     </script>
     ```
 
-3. 测试：在 `<body>` 标签内随便大一些公式，观察是否能正常显示
+3. 测试：在 `<body>` 标签内随便打一些公式，观察是否能正常显示
 
     输入测试文本：
 
