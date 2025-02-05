@@ -8,7 +8,7 @@
 
 ## 1 Requirements
 
-- The final version of Wiki should be deployed as a `GitHub Pages Site` before <span style="color:red;">2024.02.12 23:59</span>
+- The final version of Wiki should be deployed as a `GitHub Pages Site` before <span style="color:red;">2024.02.12 00:00</span>
 
 - HTML and all sort of source code MUST be committed to the Team Wiki repository on GitHub Repo
 
